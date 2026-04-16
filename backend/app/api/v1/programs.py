@@ -1,16 +1,19 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.auth import get_current_telegram_id
+from app.api.deps import get_current_user
 from app.core.database import get_session
+from app.models.user import User
+from app.schemas.program import ProgramSchema
+from app.services import program_service
 
 router = APIRouter()
 
 
-@router.get("/")
+@router.get("/", response_model=list[ProgramSchema])
 async def get_programs(
-    telegram_id: int = Depends(get_current_telegram_id),
+    current_user: User = Depends(get_current_user),
     session: AsyncSession = Depends(get_session),
 ):
     """Return all available programs (for the Shop tab)."""
-    pass
+    return await program_service.get_all_programs(session)

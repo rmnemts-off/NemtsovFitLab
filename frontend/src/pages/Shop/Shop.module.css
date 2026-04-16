@@ -1,0 +1,154 @@
+.page {
+  padding-top: 24px;
+}
+
+.header {
+  padding: 0 16px 24px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.programList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 16px;
+}
+
+.programCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+.programName {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.programDesc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.programMeta {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.btnRed {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--red);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+}
+
+.btnRed:hover {
+  opacity: 0.85;
+}
+
+/* ===== Bottom Sheet ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+}
+
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 24px 16px;
+  z-index: 201;
+}
+
+.sheetTitle {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.sheetPrice {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 24px;
+}
+
+.sheetActions {
+  display: flex;
+  gap: 8px;
+}
+
+.btnCancel {
+  flex: 1;
+  padding: 14px;
+  background: none;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btnCancel:hover {
+  border-color: var(--muted);
+  color: var(--text);
+}
+
+.btnPay {
+  flex: 2;
+  padding: 14px;
+  background: var(--red);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+}
+
+.btnPay:hover {
+  opacity: 0.85;
+}
+
+.errorText {
+  padding: 24px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}

@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.block {
+  background: var(--surface);
+  border-radius: 2px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.orderBlock {
+  width: 20px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.nameBlock {
+  height: 16px;
+  flex: 1;
+  max-width: 200px;
+}
+
+.metaBlock {
+  height: 12px;
+  width: 60px;
+  margin-top: 6px;
+}
+
+.fill {
+  flex: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}

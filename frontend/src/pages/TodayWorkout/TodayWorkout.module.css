@@ -1,0 +1,96 @@
+.page {
+  padding-top: 24px;
+}
+
+.header {
+  padding: 0 16px 24px;
+}
+
+.dayLabel {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--red);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.workoutTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.audioSection {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+
+.exerciseList {
+  border-top: 1px solid var(--border);
+}
+
+.noSubCard {
+  margin: 0 16px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.noSubTitle {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.noSubText {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.btnRed {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--red);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+}
+
+.btnRed:hover {
+  opacity: 0.85;
+}
+
+.errorText {
+  padding: 24px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.loadingTitle {
+  width: 120px;
+  height: 32px;
+  background: var(--surface);
+  opacity: 0.6;
+}

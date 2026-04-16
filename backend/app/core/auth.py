@@ -1,5 +1,7 @@
 import hashlib
 import hmac
+import json
+from typing import NamedTuple
 from urllib.parse import parse_qsl, unquote
 
 from fastapi import Depends, HTTPException, status
@@ -8,6 +10,12 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from app.core.config import settings
 
 security = HTTPBearer()
+
+
+class TelegramUserInfo(NamedTuple):
+    telegram_id: int
+    full_name: str
+    username: str | None
 
 
 def validate_init_data(init_data_raw: str) -> dict:
@@ -33,6 +41,17 @@ def validate_init_data(init_data_raw: str) -> dict:
     return parsed
 
 
+def _extract_user_info(init_data_raw: str) -> TelegramUserInfo:
+    data = validate_init_data(init_data_raw)
+    user = json.loads(data["user"])
+    telegram_id = int(user["id"])
+    first = user.get("first_name", "")
+    last = user.get("last_name", "")
+    full_name = f"{first} {last}".strip() or first
+    username = user.get("username") or None
+    return TelegramUserInfo(telegram_id=telegram_id, full_name=full_name, username=username)
+
+
 async def get_current_telegram_id(
     credentials: HTTPAuthorizationCredentials = Depends(security),
 ) -> int:
@@ -40,9 +59,19 @@ async def get_current_telegram_id(
     if scheme.lower() != "tma":
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
     try:
-        data = validate_init_data(token)
-        import json
-        user = json.loads(data["user"])
-        return int(user["id"])
+        info = _extract_user_info(token)
+        return info.telegram_id
+    except Exception:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+
+
+async def get_current_telegram_user_info(
+    credentials: HTTPAuthorizationCredentials = Depends(security),
+) -> TelegramUserInfo:
+    scheme, token = credentials.scheme, credentials.credentials
+    if scheme.lower() != "tma":
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+    try:
+        return _extract_user_info(token)
     except Exception:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)

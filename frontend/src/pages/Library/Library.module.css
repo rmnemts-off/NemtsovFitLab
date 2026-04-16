@@ -1,0 +1,98 @@
+.page {
+  padding-top: 24px;
+}
+
+/* ===== Groups View ===== */
+.header {
+  padding: 0 16px 24px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 16px;
+}
+
+.groupCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.1s, border-color 0.1s;
+  border-radius: 0;
+}
+
+.groupCard:hover,
+.groupCard:active {
+  background: #1e1e1e;
+  border-color: var(--muted);
+}
+
+.groupName {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* ===== Exercises View ===== */
+.backRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.backBtn {
+  font-size: 20px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.backBtn:hover {
+  color: var(--text);
+}
+
+.groupTitle {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.exerciseList {
+  border-top: 1px solid var(--border);
+}
+
+.errorText {
+  padding: 24px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.emptyText {
+  padding: 24px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
