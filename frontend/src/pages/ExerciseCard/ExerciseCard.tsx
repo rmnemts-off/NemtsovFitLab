@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
-import { useBackButton } from '@telegram-apps/sdk-react'
+import { backButton } from '@telegram-apps/sdk-react'
 import { getExerciseById, type Exercise } from '../../api/exercises'
 import styles from './ExerciseCard.module.css'
 
@@ -20,8 +20,6 @@ export default function ExerciseCard() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  const backButton = useBackButton()
-
   useEffect(() => {
     let cleanup: (() => void) | undefined
     try {
@@ -35,7 +33,7 @@ export default function ExerciseCard() {
       // not inside Telegram, dev mode
     }
     return cleanup
-  }, [backButton, navigate])
+  }, [navigate])
 
   useEffect(() => {
     if (!exerciseId) return
